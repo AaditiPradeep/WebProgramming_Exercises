@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <style>
+        .container {
+            position: relative;
+            width:280px;
+            height:180px;
+            border: 1px solid black;
+        }
+
+        .box {
+            width:50px;
+            height:50px;
+            opacity: 0.8;
+        }
+
+        .red {
+            position: absolute;
+            top: 20px;
+            left:20px;
+            background-color: red;
+            z-index: 1;
+        }
+
+        .green {
+            position: absolute;
+            top: 40px;
+            left:40px;
+            background-color: green;
+            z-index: 2;
+        }
+
+        .blue {
+            position: absolute;
+            top: 60px;
+            left:60px;
+            background-color: blue;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red"></div>
+        <div class="box green"></div>
+        <div class="box blue"></div>
+    </div>
+
+    <br>
+    <label>Red: </label>
+    <input type="number" id="red"><br><br>
+
+    <label>Green: </label>
+    <input type="number" id="green"><br><br>
+
+    <label>Blue: </label>
+    <input type="number" id="blue"><br><br>
+
+    <p>Current z-values: <br>
+        Red: <span id="redZ">1</span> <br>
+        Green: <span id="greenZ">2</span><br>
+        Blue: <span id="blueZ">3</span><br>
+    </p>
+    <script src="q5.js"></script>
+</body>
+</html>

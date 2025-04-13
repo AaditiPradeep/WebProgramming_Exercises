@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <script> 
+        seats = [0,0,0,0,0,0,0,0,0,0];
+        function book(start,end){
+            for(i=start;i<=end;i++){
+                    if(seats[i]==0){
+                        seats[i]=1;
+                        return i;
+                    }
+                }
+                return -1;
+        }
+        function Seats(){
+            var book1=-1,book2=-1;
+            var choice1 = Number(document.getElementById("type").value);
+            if(choice1==1){
+                book1 = book(0,4);
+                type1 = "First class";
+                type2 = "Economy class";
+                choice2=2;
+            }
+            else if(choice1==2){
+                book1 = book(5,9);
+                type1="Economy class";
+                type2 = "First class";
+                choice2=1;
+            }
+            else
+                alert("Enter valid number");
+                
+            if(book1==-1){
+                var confirmBook = confirm(`${type1} seats are full. Is ${type2} seat acceptable?`);
+                
+                if(confirmBook){
+                    if(choice2==1){
+                        book2 =  book(0,4);
+                }
+                else if(choice2==2){
+                        book2 = book(5,9);
+                }
+
+                if(book2!=-1){
+                    var name = document.getElementById("name").value;
+                    document.getElementById("ticket").innerHTML = `Passenger name: ${name}<br>Seat: ${book2+1}<br>Seat Type: ${type2}`;
+                }
+                else    
+                    document.getElementById("ticket").textContent = "Sorry. All seats are full";
+            }
+        }
+            else{
+                var name = document.getElementById("name").value;
+                document.getElementById("ticket").innerHTML = `Passenger name: ${name}<br>Seat: ${book1+1}<br>Seat Type: ${type1}`;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <label type="text">Enter your name: </label>
+    <input type="text" id="name"></input> <br> <br>
+
+    <label type="text">Ticket Type: </label>
+    <input type="text" id="type"></input> <br> <br>
+
+    <button onclick="Seats()">Book Seat</button>
+
+    <p id="ticket"></p>
+</body>
+</html>

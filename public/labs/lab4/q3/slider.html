@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+</head>
+<body>
+   <form oninput="x.value=parseInt(a.value)+parseInt(b.value)+parseInt(c.value)">
+        <label> Satisfaction: </label>
+        <input type="range" name="satisfaction" id="a" min="1" max=10 value="5" oninput="satisfactionOutput.value = a.value"> 
+        <output id="satisfactionOutput">5</output> <br>
+
+        <label> User experience: </label>
+        <input type="range" name="user-exp" id="b" min="1" max=10 value="6" oninput="expOutput.value = b.value"> 
+        <output id="expOutput">6</output> <br>
+
+        <label> Worth the price : </label>
+        <input type="range" name="worth" min="1" id="c" max=10 value="8" oninput="worthOutput.value = c.value">
+        <output id="worthOutput"> 8</output> <br>
+
+        <label> Total: </label>
+        <output id="x">19</output>      
+        
+        
+    </form> 
+    
+</body>
+</html>

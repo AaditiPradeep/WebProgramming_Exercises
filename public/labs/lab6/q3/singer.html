@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <style>
+        .myphoto {
+            height: 150px;
+            width: 150px;
+            border: 2px solid red;
+            border-radius: 50%;
+        }
+
+        @keyframes fontChange {
+            0% {
+                font-family: 'Courier New', Courier, monospace;
+                color: black;
+                font-size: 10px;
+            }
+            25%,75% {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: blue;
+                font-size: 20px;
+            }
+
+            50%,100% {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                color: red;
+                font-size: 30px;
+            }
+
+        }
+
+        .SingerCaption {
+            animation-name: fontChange;
+            animation-duration: 10s;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+    <img class="myphoto" src="singer.jpg"><br>
+    <p class="SingerCaption"> Shreya Ghoshal - <br>My Favourite singer </p>
+    </center>
+</body>
+</html>

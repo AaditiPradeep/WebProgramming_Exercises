@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+</head>
+<script>
+    function BMI(){
+        var w = Number(document.getElementById("weight").value);
+        var f = Number(document.getElementById("height1").value);
+        var i = Number(document.getElementById("height2").value);
+        var h = 12*f + i;
+        var bmi = 703*w/(h*h);
+        document.getElementById("value").innerText = bmi.toFixed(2);
+
+        let gender = document.getElementById("gender").value;
+        if(gender=="male"){
+            if(bmi<=17.50)
+                cat = "Anorexia";
+            else if(bmi>=17.51 && bmi<=20.7)
+                cat = "Underweight";
+            else if(bmi>=20.71 && bmi<=26.4)
+                cat = "Ideal range";
+            else if(bmi>=26.41 && bmi>=27.80)
+                cat="Marginally overweight"
+            else if(bmi>=27.81 && bmi<=31.0)
+                cat="Overweight";
+            else    
+                cat = "Very Overweight"
+        }
+        else if(gender=="female"){
+            if(bmi<=17.50)
+                cat = "Anorexia";
+            else if(bmi>=17.51 && bmi<=19.10)
+                cat = "Underweight";
+            else if(bmi>=19.11 && bmi<=25.80)
+                cat = "Ideal range";
+            else if(bmi>=25.81 && bmi<=27.30)
+                cat="Marginally overweight"
+            else if(bmi>=27.31 && bmi<=32.3)
+                cat="Overweight";
+            else    
+                cat = "Very Overweight"
+        }
+
+        alert(`Your BMI category is ${cat}`);
+    
+
+    }
+</script>
+<body>
+    <table border="2", width="30%" >
+        <tr>
+            <th colspan="2">BMI Calculator
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <b> Enter your weight: <br></b>
+                (in pounds) <input type="number" id="weight">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+               <b>Enter your height : <br></b>
+                (feet) <input type="number" id="height1"> <br>  <br>
+                (inches) <input type="number" id="height2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center> <button onclick="BMI()">Calculate</button></center>
+            </td>
+        </tr>
+        <tr>
+            <th>Your BMI</th>
+            <td id="value"><textarea placeholder="BMI Category" rows=1 col=10></textarea></td>
+        </tr>
+    </table>
+</body>
+</html>

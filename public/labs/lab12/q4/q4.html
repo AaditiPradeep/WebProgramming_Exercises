@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+    <div id="myPlot1" style="width:100%;max-width:500px"></div>
+    <div id="myPlot2" style="width:100%;max-width:500px"></div>
+    <div id="myPlot3" style="width:100%;max-width:500px"></div>
+    <div id="myPlot4" style="width:100%;max-width:500px"></div>
+
+    <script>
+        const xArray = ["Italy","France","Spain","USA","India"];
+        const yArray = [55, 49, 44, 24, 15];
+        const barColors = ["red", "green","blue","orange","brown"];
+        const data = [{
+            x: xArray,
+            y: yArray,
+            type:"bar",
+            orientation:"v",
+            marker: { color: barColors }}];
+
+        const layout = {
+        xaxis: { title: "Countries" },
+        yaxis: { title: "Quantity in Tons" },
+        title:"World Wide Production"
+        };
+        Plotly.newPlot("myPlot1", data, layout);
+
+        const data1 = [{
+            x: xArray,
+            y: yArray,
+            type:"scatter",
+            mode:"lines"
+        }];
+
+        const layout1 = {
+        xaxis: { title: "Countries" },
+        yaxis: { title: "Quantity in Tons" },
+        title:"World Wide Production"
+        };
+        Plotly.newPlot("myPlot2", data1, layout1);
+
+
+        const data2 = [{
+            labels: xArray,
+            values: yArray,
+            type:"pie",
+        }];
+
+        const layout2 = {title:"World Wide Production"};
+        Plotly.newPlot("myPlot3", data2, layout2);
+
+        const data3 = [{
+            labels: xArray,
+            values: yArray,
+            hole:0.4,
+            type:"pie",
+        }];
+
+        const layout3 = {title:"World Wide Production"};
+        Plotly.newPlot("myPlot4", data3, layout3);
+
+
+
+</script>
+</body>
+</html>

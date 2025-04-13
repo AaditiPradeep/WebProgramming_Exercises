@@ -1,0 +1,10 @@
+.container {
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    background-color: #87cefa;
+    border: 6px solid #008000;
+    outline: dotted rgb(253, 237, 3);
+    outline-offset: 20px;
+    margin: 25px;
+}

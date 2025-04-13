@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <script>
+        function getCategory(){
+        let temperature = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+        let cold = 0, hot =0, pleasant=0;
+        let tempTable = document.getElementById("tableBody");
+
+        temperature.forEach(temp => {
+                if(temp>=85){
+                    cat = "Hot";
+                    hot++;
+                }
+                else if (temp>=60 && temp<85){
+                    cat = "Pleasant";
+                    pleasant++;
+                }
+                else {
+                    cat = "Cold";
+                    cold++;
+                }
+
+                let row = document.createElement("tr")
+                let td1 = document.createElement("td");
+                td1.textContent = temp;
+
+                let td2 = document.createElement("td");
+                td2.textContent = cat;
+
+                row.appendChild(td1);
+                row.appendChild(td2);
+                tempTable.appendChild(row);          
+               })
+
+               document.getElementById("hot").innerText = `No. of hot days: ${hot}`;
+               document.getElementById("cold").innerText = `No. of cold days: ${cold}`;
+               document.getElementById("pleasant").innerText = `No. of pleasant days: ${pleasant}`;
+        }
+        window.onload = getCategory; 
+
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Temperature</th>
+            <th>Category</th>
+        </tr>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <p id="hot"></p>
+    <p id="cold"></p>
+    <p id="pleasant"></p>
+</body>
+</html>

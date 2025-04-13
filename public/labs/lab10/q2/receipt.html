@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Order Receipt</h2>
+        <div id="receipt"></div>
+        <button onclick="window.location.href='index.html'">Place Another Order</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let orderData = JSON.parse(localStorage.getItem("orderData"));
+            let receiptDiv = document.getElementById("receipt");
+
+            if (orderData) {
+                let receiptHTML = `
+                    <p><strong>Name:</strong> ${orderData.name}</p>
+                    <p><strong>Phone:</strong> ${orderData.phone}</p>
+                    <p><strong>Email:</strong> ${orderData.email}</p>
+                    <h3>Ordered Products:</h3>
+                    <ul>`;
+
+                let totalAmount = 0;
+
+                orderData.products.forEach(product => {
+                    let cost = product.price * product.quantity;
+                    totalAmount += cost;
+                    receiptHTML += `<li>${product.name} - ${product.quantity} kg - $${cost}</li>`;
+                });
+
+                receiptHTML += `</ul><h3>Total Amount: $${totalAmount}</h3>`;
+
+                receiptDiv.innerHTML = receiptHTML;
+            } else {
+                receiptDiv.innerHTML = "<p>No order found.</p>";
+            }
+        });
+    </script>
+</body>
+</html>

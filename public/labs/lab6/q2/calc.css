@@ -1,0 +1,41 @@
+table {
+    background-color: skyblue;
+    border-spacing: 10px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width:30%
+}
+
+td {
+    padding-top: 10px;  
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border-radius: 5px;;
+}
+
+#cal {
+    background-color: lightcoral;
+}
+
+#result {
+    background-color: rgb(3, 171, 171);
+}
+
+.symbol {
+    background-color: lightpink;
+}
+
+.number:hover, .symbol:hover {
+    background-color: rgb(245, 15, 245);
+}
+
+.number, .symbol { 
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.equals {
+    background-color: lightgreen;
+}

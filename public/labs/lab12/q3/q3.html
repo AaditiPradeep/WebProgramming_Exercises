@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+</head>
+<body>
+    <canvas id="canvas" width="250" height="250" style="background-color:gray"> 
+        Sorry, your browser does not support canvas.
+    </canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        let radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        //Calls drawClock() every 1000ms (1 second) using setInterval(),
+        setInterval(drawClock, 1000);
+        function drawClock() {
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        }
+
+    function drawFace(ctx, radius) {
+        const grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+        grad.addColorStop(0, '#333');    // Dark gray outer ring
+        grad.addColorStop(0.5, 'pink');  // Pink middle area
+        grad.addColorStop(1, '#333');    // Dark gray inner ring
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);  // Draws a full circle
+        ctx.fillStyle = 'white';  // Sets fill color to white
+        ctx.fill();
+
+        ctx.strokeStyle = grad;  // Uses gradient for border 3d appearance
+        ctx.lineWidth = radius * 0.1;  // Border thickness
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);  // Draws a small circle in the center
+        ctx.fillStyle = '#333';  // Sets center dot color
+        ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+    ctx.font = radius * 0.15 + "px arial";  // Sets font size relative to clock size
+    ctx.textBaseline = "middle";  // Aligns text vertically in the middle
+    ctx.textAlign = "center";  // Centers text horizontally
+
+    for(let num = 1; num < 13; num++) {
+        let ang = num * Math.PI / 6;  // Convert number position to angle
+        ctx.rotate(ang);  // Rotate canvas to the correct position
+        ctx.translate(0, -radius * 0.85);  // Move text outward from the center
+        ctx.rotate(-ang);  // Rotate back to upright text position
+        ctx.fillText(num.toString(), 0, 0);  // Draw number
+        ctx.rotate(ang);  // Restore rotation
+        ctx.translate(0, radius * 0.85);  // Move text back to original position
+        ctx.rotate(-ang);
+    }
+}
+
+function drawTime(ctx, radius) {
+    const now = new Date();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let second = now.getSeconds();
+
+    // Hour hand position (Converted time to angles (radians) to move correctly)
+    hour = hour % 12;
+    hour = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
+    drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+
+    // Minute hand position
+    minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+    drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+
+    // Second hand position
+    second = (second * Math.PI / 30);
+    drawHand(ctx, second, radius * 0.9, radius * 0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0, 0);
+    ctx.rotate(pos);  // Rotate to the correct position
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);  // Rotate back to prevent misalignment
+}
+</script>
+</body>
+</html>

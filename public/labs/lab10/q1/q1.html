@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+
+    <script src="index.js"></script>
+  
+</head>
+<body>
+    <b><p> Sorted list of patients: </p> </b>
+    <table border="1">
+        <thead id="tHead1"> </thead>
+        <tbody id="tBody1"></tbody>
+    </table>
+
+    <p></p>
+    <label> Enter patient id to find: </label> 
+    <input type="number" id="search">
+    <button onclick="search()">Search</button>
+    <p id="result" style="font-weight: bold;"></p>
+
+    <label>Enter min age: </label> 
+    <input type="number" id="min"><br> <br>
+
+    <label>Enter max age: </label> 
+    <input type="number" id="max">
+
+    <button onclick="filterAge()">Filter</button>
+    <table border="1">
+        
+        <thead id="tHead2"></thead>
+        <tbody id="tBody2"></tbody>
+    </table>
+
+
+</body>
+</html>

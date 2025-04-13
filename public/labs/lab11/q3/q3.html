@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1687</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="test" style="border: 1px solid black; padding: 10px;">
+        <h1>Test JavaScript Form Validation </h1>
+        <p style="position: absolute; border: 1px solid black; top:20px; right:10px; font-size: large; margin-right: 10px;">Time: <span id="timeDisplay"></span></p>
+                    
+        <label for="name">Name*</label>
+        <input type="text" id="name" class="requiredField">
+        <span class="error" id="nameError"></span>
+        <br><br>
+    
+        <label for="address">Address</label>
+        <input type="text" id="address" class="requiredField">
+        <span class="error" id="addressError"></span>
+        <br><br>
+    
+        <label for="zip">Zip Code*</label>
+        <input type="text" id="zip" class="requiredField">
+        <span class="error" id="zipError"></span>
+        <br><br>
+    
+        <label for="country">Country*</label>
+        <select id="country" class="requiredField">
+            <option value="">Please select...</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
+        <span class="error" id="countryError"></span>
+        <br><br>
+    
+        <div id="pan" style="position: absolute; right:20px">
+            <label for="panNo">Pan No</label>
+            <input type="text" id="panNo" class="requiredField">
+            <span class="error" id="panError"></span>
+            <br><br>
+        </div>
+    
+        <label>Gender</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <span class="error" id="genderError"></span>
+        <br><br>
+    
+        <label>Preferences</label>
+        <input type="checkbox" id="prefRed" name="preferences" value="Red">
+        <label for="prefRed">Red</label>
+        <input type="checkbox" id="prefGreen" name="preferences" value="Green">
+        <label for="prefGreen">Green</label>
+        <input type="checkbox" id="prefBlue" name="preferences" value="Blue">
+        <label for="prefBlue">Blue</label>
+        <span class="error" id="preferencesError"></span>
+        <br><br>
+    
+        <label for="phone">Phone*</label>
+        <input type="text" id="phone" class="requiredField">
+        <span class="error" id="phoneError"></span>
+        <br><br>
+    
+        <label for="email">Email*</label>
+        <input type="text" id="email" class="requiredField">
+        <span class="error" id="emailError"></span>
+        <br><br>
+    
+        <label for="password">Password (6-8 characters)*</label>
+        <input type="password" id="password" class="requiredField">
+        <span class="error" id="passwordError"></span>
+        <br><br>
+    
+        <label for="verifyPassword">Verify Password*</label>
+        <input type="password" id="verifyPassword" class="requiredField">
+        <span class="error" id="verifyPasswordError"></span>
+        <br><br>
+    
+        <center>
+            <button type="submit" id="send">Send</button>
+            <button type="reset" id="clear" onclick="document.getElementById('test').reset()">Clear</button>
+            <button id="display" onclick="displayData()">Show Form Data</button>
+        </center>
+        </form>
+
+        <div id="output"></div>
+        
+
+    </form>
+    <script src="q3.js"></script>
+</body>
+</html>
