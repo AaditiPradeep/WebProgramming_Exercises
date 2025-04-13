@@ -1,0 +1,11 @@
+/* styles.css */
+.external-button {
+    background-color: lightblue;
+    padding: 14px 28px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
